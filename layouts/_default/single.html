@@ -1,0 +1,11 @@
+{{ partial "head.html" . }}
+{{ partial "nav.html" . }}
+
+<main style="padding: calc(var(--nav-h) + 4rem) 2rem 4rem; max-width:900px; margin:0 auto;">
+  <h1 style="font-family:var(--ff-display); color:var(--clr-brown); margin-bottom:1.5rem;">{{ .Title }}</h1>
+  <div>{{ .Content }}</div>
+</main>
+
+{{ partial "footer.html" . }}
+</body>
+</html>

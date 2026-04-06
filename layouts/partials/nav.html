@@ -1,0 +1,18 @@
+<!-- ── NAVIGATION: logo + language switch only ── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+
+  <a href="{{ .Site.BaseURL }}" class="nav__logo">
+    <span class="nav__logo-icon">🔩</span>
+    {{ .Site.Title }}
+  </a>
+
+  {{ $currentLang := .Site.Language.Lang }}
+  {{ range hugo.Sites }}
+    {{ if ne .Language.Lang $currentLang }}
+      <a href="{{ .Home.RelPermalink }}" class="lang-switch" aria-label="Switch language">
+        {{ .Language.LanguageName }}
+      </a>
+    {{ end }}
+  {{ end }}
+
+</nav>
