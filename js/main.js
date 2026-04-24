@@ -21,6 +21,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  document.addEventListener('click', function(e) {
+  var link = e.target.closest('a');
+  if (!link) return;
+  var href = link.getAttribute('href') || '';
+
+  if (href.startsWith('https://wa.me/')) {
+    gtag('event', 'whatsapp_click', {
+      event_category: 'contact',
+      event_label: 'whatsapp'
+    });
+  }
+
+  if (href.startsWith('tel:')) {
+    gtag('event', 'call_click', {
+      event_category: 'contact',
+      event_label: 'phone'
+    });
+  }
+});
+
   function closeLightbox() {
     lightbox.classList.remove('open');
     document.body.style.overflow = '';

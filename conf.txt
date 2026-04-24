@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: my-site-gateway
+  version: 1.0.0
+servers:
+- url: https://d5d6trom5r6g2101mlpg.628pfjdx.apigw.yandexcloud.net
+- url: https://aluminumfabricatorriydh.com
+- url: https://www.aluminumfabricatorriydh.com
+paths:
+  /:
+    x-yc-apigateway-any-method:
+      x-yc-apigateway-integration:
+        type: http
+        url: https://bba9k09el312fgfi4qcp.containers.yandexcloud.net/
+        x-yc-apigateway-pass-query-params: true
+  /en/:
+    x-yc-apigateway-any-method:
+      x-yc-apigateway-integration:
+        type: http
+        url: https://bba9k09el312fgfi4qcp.containers.yandexcloud.net/en/
+        x-yc-apigateway-pass-query-params: true
+  /en/{proxy+}:
+    parameters:
+      - name: proxy
+        in: path
+        required: true
+        schema:
+          type: string
+    x-yc-apigateway-any-method:
+      x-yc-apigateway-integration:
+        type: http
+        url: https://bba9k09el312fgfi4qcp.containers.yandexcloud.net/en/{proxy}
+        x-yc-apigateway-pass-query-params: true
+  /{proxy+}:
+    parameters:
+      - name: proxy
+        in: path
+        required: true
+        schema:
+          type: string
+    x-yc-apigateway-any-method:
+      x-yc-apigateway-integration:
+        type: http
+        url: https://bba9k09el312fgfi4qcp.containers.yandexcloud.net/{proxy}
+        x-yc-apigateway-pass-query-params: true
